@@ -1,5 +1,8 @@
+require 'seo'
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+
+  include Seo
 
   # GET /articles
   # GET /articles.json
@@ -10,6 +13,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
+    set_seo_title(@article)
   end
 
   # GET /articles/new
